@@ -1,0 +1,43 @@
+
+int main() {
+    pices_num = 3;
+
+    pices_array = (pice_t*)malloc(sizeof(pice_t)*pices_num);
+    final_array = (pice_t*)malloc(sizeof(pice_t)*pices_num);
+    rect_t free_rect[100];
+    free_rect[0] = (rect_t){0, 0, WIDTH , HEIGHT};
+
+    //? Test Primeri
+    // pices_array[0] = (pice_t){0, 0, 450, 450, 1};
+    // pices_array[1] = (pice_t){450, 0, 400, 500, 1};
+    // pice_t pice = {0, 0, 400, 500, 0};
+    // pice_t pice = {0, 0, 600, 300, 0};
+
+    // pices_array[0] = (pice_t){0, 0, 100, 50, 1};
+    // pices_array[1] = (pice_t){0, 50, 100, 50, 1};
+    // pices_array[2] = (pice_t){0, 100, 100, 50, 1};
+    // pices_array[3] = (pice_t){0, 150, 100, 50, 1};
+    // pices_array[4] = (pice_t){100, 0, 100, 50, 1};
+    // pices_array[5] = (pice_t){100, 50, 100, 50, 1};
+    // pices_array[6] = (pice_t){100, 100, 100, 50, 1};
+    // pices_array[7] = (pice_t){100, 150, 100, 50, 1};
+
+
+    pices_array[0] = (pice_t){0, 0, 450, 450, 0};
+    pices_array[1] = (pice_t){0, 0, 400, 500, 0};
+    pices_array[2] = (pice_t){0, 0, 600, 300, 0};
+    // pices_array[3] = (pice_t){0, 150, 500, 200, 0};
+    // pices_array[4] = (pice_t){100, 0, 300, 300, 0};
+    // pices_array[5] = (pice_t){100, 50, 200, 400, 0};
+    // pices_array[6] = (pice_t){100, 100, 250, 100, 0};
+    // pices_array[7] = (pice_t){100, 100, 150, 150, 0};
+    // pices_array[8] = (pice_t){100, 150, 100, 50, 0};
+
+
+    algo(NULL, pices_num, NULL, 1);
+    printf("ukupna povrsina je: %d\n", evaluate());
+
+    print(final_array);
+    
+    return 0;
+}
