@@ -31,8 +31,8 @@ int successors(pice_t *pice, rect_t *free_pos, int *count, int* p, pice_t *pices
     for (int i = *p; i < tmp; i++) {
 
         if (out_of_bounds(free_pos[i], *pice) == true) {
-            // printf("Parce [%d, %d] je out of bounds na poziciji (%d, %d), jer je slobodna dimenzija [%d, %d]\n", 
-            //     pice->Width, pice->Height, free_pos[i].X, free_pos[i].Y, free_pos[i].Width, free_pos[i].Height);
+            printf("Parce [%d, %d] je out of bounds na poziciji (%d, %d), jer je slobodna dimenzija [%d, %d]\n", 
+                pice->Width, pice->Height, free_pos[i].X, free_pos[i].Y, free_pos[i].Width, free_pos[i].Height);
             continue;
         }
 
@@ -46,10 +46,14 @@ int successors(pice_t *pice, rect_t *free_pos, int *count, int* p, pice_t *pices
         int width = pice->Width;
         int height = pice->Height;
 
-        // make_cut(cuts, pices, pice, &free_pos[i]);
 
-        free_pos[(*count)++] = (rect_t){old_x + width, old_y, free_pos[i].Width - width, free_pos[i].Height};
-        free_pos[i] = (rect_t){old_x, old_y + height, width, free_pos[i].Height- height};
+        if (free_pos[i].Width - width != 0) {
+            free_pos[(*count)++] = (rect_t){old_x + width, old_y, free_pos[i].Width - width, free_pos[i].Height};
+        }
+        if (free_pos[i].Height - height != 0) {
+            free_pos[(*count)++]= (rect_t){old_x, old_y + height, width, free_pos[i].Height - height};
+        }
+        free_pos[i] = free_pos[--(*count)];
 
         (*p) = i + 1;
         return 1;
@@ -57,76 +61,6 @@ int successors(pice_t *pice, rect_t *free_pos, int *count, int* p, pice_t *pices
     // printf("Nema vise slobodnih mesta za postavljanje parceta\n");
     return -1;
 }
-
-int make_cut(cut_array_t *cut_array, pice_t *pices, pice_t *pice, rect_t *free_pos) {
-    if (cut_array->num_of_cuts == -1) {
-        printf("Postavilo se prvo parce\n");
-        cut_array->num_of_cuts = 0;
-        return 0;
-    }
-
-    // Provera da li je vec na istoj liniji na kojoj je postavljen CUT
-    for (int i = 0; i < cut_array->num_of_cuts; i++) {
-        if (cut_array->cuts[i].X == pice->X || cut_array->cuts[i].Y == pice->Y) {
-            printf("Vec je postavljen cut na poziciji (%d, %d)\n", pice->X, pice->Y);
-            return 0;
-        }
-    }
-
-    for (int i = 0; i < PICES_NUM; i++) {
-
-        if (pices[i].Set == false) {
-            continue;
-        }
-
-        if (pices[i].Next == 3) {
-            continue;
-        }
-
-        if (is_pices_equa(pices[i], *pice) == true) {
-            continue;
-        }
-
-        // Provera da li je pice postavljen DESNO od vec postavljenog parceta
-        if (pices[i].X + pices[i].Width == pice->X) {
-            if (pices[i].Next == 0) {
-                printf("Pice je postavljeno desno od vec postavljenog parceta\n");
-                cut_array->cuts[cut_array->num_of_cuts++] = (cut_t){pice->X, pice->Y, pice->X, free_pos->Height};
-            } else {
-                cut_array->cuts[cut_array->num_of_cuts++] = (cut_t){pice->X, pice->Y, pice->X, pices[i].Height};
-            }
-            pices[i].Next += g_next_right;
-            break;
-        // Provera da li je pice postavljen ISPOD od vec postavljenog parceta
-        } else if (pices[i].Y + pices[i].Height == pice->Y){
-            if (pices[i].Next == 0) {
-                cut_array->cuts[cut_array->num_of_cuts++] = (cut_t){pice->X, pice->Y, free_pos->Width, pice->Y};
-            } else {
-                cut_array->cuts[cut_array->num_of_cuts++] = (cut_t){pice->X, pice->Y, pices[i].Width, pice->Y};
-            }
-            pices[i].Next += g_next_down;
-            break;
-        }
-    }
-    print_cuts(cut_array);
-    return 0;
-
-}
-
-void print_cuts(cut_array_t *cuts) {
-    printf("-----------------------------------\n");
-    printf("Niz cut-ova:\n\n");
-    if (cuts->num_of_cuts == -1) {
-        printf("Nema cut-ova\n");
-        return;
-    }
-    for (int i = 0; i < cuts->num_of_cuts; i++) {
-        printf("Cut: (%d, %d) i dimenzije [%d, %d]\n", 
-            cuts->cuts[i].X, cuts->cuts[i].Y, cuts->cuts[i].Width, cuts->cuts[i].Height);
-    }
-    printf("-----------------------------------\n");
-}
-
 
 void algo(pice_t *pices, int depth, rect_t *free_pos, int count) {
 
@@ -192,7 +126,7 @@ int main() {
     rect_t *free_pos;
     cut_array_t *cuts;
 
-    FILE *file = fopen("primer5.txt", "r");
+    FILE *file = fopen("primer4.txt", "r");
 
     while(feof(file) == 0) {
         fscanf(file, "%d %d", &WIDTH, &HEIGHT);
