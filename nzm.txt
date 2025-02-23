@@ -1,43 +1,190 @@
+ALGO JE SA DEPTHOM = 5
+(0, 0) i [250, 100]
+Stavljena je plocica na mestu (0, 0), dimenzije [250, 100]
+-----------------------------------
+Niz slobodni mesta:
 
-int main() {
-    pices_num = 3;
+Pozicija je: (0, 100), i slobodno mesto [500, 600]
+Pozicija je: (250, 0), i slobodno mesto [250, 700]
+-----------------------------------
+-----------------------------------
+Niz postavljenih parcica:
 
-    pices_array = (pice_t*)malloc(sizeof(pice_t)*pices_num);
-    final_array = (pice_t*)malloc(sizeof(pice_t)*pices_num);
-    rect_t free_rect[100];
-    free_rect[0] = (rect_t){0, 0, WIDTH , HEIGHT};
+Parce: [250, 100], postavljeno je (0, 0) i povrsina je 25000
+-----------------------------------
+pozvao sam algo sa depthom = 4
+ALGO JE SA DEPTHOM = 4
+(0, 0) i [100, 100]
+Stavljena je plocica na mestu (0, 100), dimenzije [100, 100]
+-----------------------------------
+Niz slobodni mesta:
 
-    //? Test Primeri
-    // pices_array[0] = (pice_t){0, 0, 450, 450, 1};
-    // pices_array[1] = (pice_t){450, 0, 400, 500, 1};
-    // pice_t pice = {0, 0, 400, 500, 0};
-    // pice_t pice = {0, 0, 600, 300, 0};
+Pozicija je: (0, 200), i slobodno mesto [500, 500]
+Pozicija je: (250, 0), i slobodno mesto [250, 700]
+Pozicija je: (100, 100), i slobodno mesto [400, 600]
+-----------------------------------
+-----------------------------------
+Niz postavljenih parcica:
 
-    // pices_array[0] = (pice_t){0, 0, 100, 50, 1};
-    // pices_array[1] = (pice_t){0, 50, 100, 50, 1};
-    // pices_array[2] = (pice_t){0, 100, 100, 50, 1};
-    // pices_array[3] = (pice_t){0, 150, 100, 50, 1};
-    // pices_array[4] = (pice_t){100, 0, 100, 50, 1};
-    // pices_array[5] = (pice_t){100, 50, 100, 50, 1};
-    // pices_array[6] = (pice_t){100, 100, 100, 50, 1};
-    // pices_array[7] = (pice_t){100, 150, 100, 50, 1};
+Parce: [250, 100], postavljeno je (0, 0) i povrsina je 25000
+Parce: [100, 100], postavljeno je (0, 100) i povrsina je 10000
+-----------------------------------
+pozvao sam algo sa depthom = 3
+ALGO JE SA DEPTHOM = 3
+(0, 0) i [300, 50]
+Stavljena je plocica na mestu (0, 200), dimenzije [300, 50]
+-----------------------------------
+Niz slobodni mesta:
+
+Pozicija je: (0, 250), i slobodno mesto [500, 450]
+Pozicija je: (250, 0), i slobodno mesto [250, 700]
+Pozicija je: (100, 100), i slobodno mesto [400, 600]
+Pozicija je: (300, 200), i slobodno mesto [200, 500]
+-----------------------------------
+-----------------------------------
+Niz postavljenih parcica:
+
+Parce: [250, 100], postavljeno je (0, 0) i povrsina je 25000
+Parce: [100, 100], postavljeno je (0, 100) i povrsina je 10000
+Parce: [300, 50], postavljeno je (0, 200) i povrsina je 15000
+-----------------------------------
+pozvao sam algo sa depthom = 2
+ALGO JE SA DEPTHOM = 2
+(0, 0) i [250, 500]
+Parce [250, 500] je out of bounds na poziciji (0, 250), jer je slobodna dimenzija [500, 450]
+Stavljena je plocica na mestu (250, 0), dimenzije [250, 500]
+-----------------------------------
+Niz slobodni mesta:
+
+Pozicija je: (0, 250), i slobodno mesto [500, 450]
+Pozicija je: (250, 500), i slobodno mesto [250, 200]
+Pozicija je: (100, 100), i slobodno mesto [400, 600]
+Pozicija je: (300, 200), i slobodno mesto [200, 500]
+Pozicija je: (500, 0), i slobodno mesto [0, 700]
+-----------------------------------
+-----------------------------------
+Niz postavljenih parcica:
+
+Parce: [250, 100], postavljeno je (0, 0) i povrsina je 25000
+Parce: [100, 100], postavljeno je (0, 100) i povrsina je 10000
+Parce: [300, 50], postavljeno je (0, 200) i povrsina je 15000
+Parce: [250, 500], postavljeno je (250, 0) i povrsina je 125000
+-----------------------------------
+pozvao sam algo sa depthom = 1
+ALGO JE SA DEPTHOM = 1
+(0, 0) i [400, 20]
+Stavljena je plocica na mestu (0, 250), dimenzije [400, 20]
+-----------------------------------
+Niz slobodni mesta:
+
+Pozicija je: (0, 270), i slobodno mesto [500, 430]
+Pozicija je: (250, 500), i slobodno mesto [250, 200]
+Pozicija je: (100, 100), i slobodno mesto [400, 600]
+Pozicija je: (300, 200), i slobodno mesto [200, 500]
+Pozicija je: (500, 0), i slobodno mesto [0, 700]
+Pozicija je: (400, 250), i slobodno mesto [100, 450]
+-----------------------------------
+-----------------------------------
+Niz postavljenih parcica:
+
+Parce: [250, 100], postavljeno je (0, 0) i povrsina je 25000
+Parce: [100, 100], postavljeno je (0, 100) i povrsina je 10000
+Parce: [300, 50], postavljeno je (0, 200) i povrsina je 15000
+Parce: [250, 500], postavljeno je (250, 0) i povrsina je 125000
+Parce: [400, 20], postavljeno je (0, 250) i povrsina je 8000
+-----------------------------------
+pozvao sam algo sa depthom = 0
+ALGO JE SA DEPTHOM = 0
+Dobio sam final_array
+Parce [400, 20] je out of bounds na poziciji (250, 500), jer je slobodna dimenzija [250, 200]
+Stavljena je plocica na mestu (100, 100), dimenzije [400, 20]
+-----------------------------------
+Niz slobodni mesta:
+
+Pozicija je: (0, 270), i slobodno mesto [500, 430]
+Pozicija je: (250, 500), i slobodno mesto [250, 200]
+Pozicija je: (100, 120), i slobodno mesto [400, 580]
+Pozicija je: (300, 200), i slobodno mesto [200, 500]
+Pozicija je: (500, 0), i slobodno mesto [0, 700]
+Pozicija je: (500, 100), i slobodno mesto [0, 600]
+-----------------------------------
+-----------------------------------
+Niz postavljenih parcica:
+
+Parce: [250, 100], postavljeno je (0, 0) i povrsina je 25000
+Parce: [100, 100], postavljeno je (0, 100) i povrsina je 10000
+Parce: [300, 50], postavljeno je (0, 200) i povrsina je 15000
+Parce: [250, 500], postavljeno je (250, 0) i povrsina je 125000
+Parce: [400, 20], postavljeno je (100, 100) i povrsina je 8000
+-----------------------------------
+pozvao sam algo sa depthom = 0
+ALGO JE SA DEPTHOM = 0
+Dobio sam final_array
+Parce [400, 20] je out of bounds na poziciji (300, 200), jer je slobodna dimenzija [200, 500]
+Parce [400, 20] je out of bounds na poziciji (500, 0), jer je slobodna dimenzija [0, 700]
+Stavljena je plocica na mestu (100, 120), dimenzije [250, 500]
+-----------------------------------
+Niz slobodni mesta:
+
+Pozicija je: (0, 270), i slobodno mesto [500, 430]
+Pozicija je: (250, 500), i slobodno mesto [250, 200]
+Pozicija je: (100, 620), i slobodno mesto [400, 80]
+Pozicija je: (300, 200), i slobodno mesto [200, 500]
+Pozicija je: (350, 120), i slobodno mesto [150, 580]
+-----------------------------------
+-----------------------------------
 
 
-    pices_array[0] = (pice_t){0, 0, 450, 450, 0};
-    pices_array[1] = (pice_t){0, 0, 400, 500, 0};
-    pices_array[2] = (pice_t){0, 0, 600, 300, 0};
-    // pices_array[3] = (pice_t){0, 150, 500, 200, 0};
-    // pices_array[4] = (pice_t){100, 0, 300, 300, 0};
-    // pices_array[5] = (pice_t){100, 50, 200, 400, 0};
-    // pices_array[6] = (pice_t){100, 100, 250, 100, 0};
-    // pices_array[7] = (pice_t){100, 100, 150, 150, 0};
-    // pices_array[8] = (pice_t){100, 150, 100, 50, 0};
+Ovo nije dobro jer poslednja plocica u ovom slucaju ne bi trebala da bude postavljena
+Niz postavljenih parcica:
 
+Parce: [250, 100], postavljeno je (0, 0) i povrsina je 25000
+Parce: [100, 100], postavljeno je (0, 100) i povrsina je 10000
+Parce: [300, 50], postavljeno je (0, 200) i povrsina je 15000
+Parce: [250, 500], postavljeno je (100, 120) i povrsina je 125000
+Parce: [400, 20], postavljeno je (100, 100) i povrsina je 8000
+-----------------------------------
+pozvao sam algo sa depthom = 1
+ALGO JE SA DEPTHOM = 1
+Parce [250, 500] je out of bounds na poziciji (300, 200), jer je slobodna dimenzija [200, 500]
+Parce [300, 50] je out of bounds na poziciji (250, 500), jer je slobodna dimenzija [250, 200]
+Stavljena je plocica na mestu (100, 620), dimenzije [300, 50]
+-----------------------------------
+Niz slobodni mesta:
 
-    algo(NULL, pices_num, NULL, 1);
-    printf("ukupna povrsina je: %d\n", evaluate());
+Pozicija je: (0, 270), i slobodno mesto [500, 430]
+Pozicija je: (250, 500), i slobodno mesto [250, 200]
+Pozicija je: (100, 670), i slobodno mesto [400, 30]
+Pozicija je: (400, 620), i slobodno mesto [100, 80]
+-----------------------------------
+-----------------------------------
+Niz postavljenih parcica:
 
-    print(final_array);
-    
-    return 0;
-}
+Parce: [250, 100], postavljeno je (0, 0) i povrsina je 25000
+Parce: [100, 100], postavljeno je (0, 100) i povrsina je 10000
+Parce: [300, 50], postavljeno je (100, 620) i povrsina je 15000
+Parce: [250, 500], postavljeno je (100, 120) i povrsina je 125000
+Parce: [400, 20], postavljeno je (100, 100) i povrsina je 8000
+-----------------------------------
+pozvao sam algo sa depthom = 2
+ALGO JE SA DEPTHOM = 2
+Stavljena je plocica na mestu (250, 500), dimenzije [100, 100]
+-----------------------------------
+Niz slobodni mesta:
+
+Pozicija je: (0, 270), i slobodno mesto [500, 430]
+Pozicija je: (250, 600), i slobodno mesto [250, 100]
+Pozicija je: (350, 500), i slobodno mesto [150, 200]
+-----------------------------------
+-----------------------------------
+Niz postavljenih parcica:
+
+Parce: [250, 100], postavljeno je (0, 0) i povrsina je 25000
+Parce: [100, 100], postavljeno je (250, 500) i povrsina je 10000
+Parce: [300, 50], postavljeno je (100, 620) i povrsina je 15000
+Parce: [250, 500], postavljeno je (100, 120) i povrsina je 125000
+Parce: [400, 20], postavljeno je (100, 100) i povrsina je 8000
+-----------------------------------
+pozvao sam algo sa depthom = 3
+ALGO JE SA DEPTHOM = 3
+ukupna povrsina je: 183000
